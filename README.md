@@ -151,7 +151,7 @@ import {CSVLink} from 'react-csv';
 
 ### - **enclosingCharacter** Props:
 
-Following a request to add [this feature](https://github.com/abdennour/react-csv/issues/68) , from `1.0.12` release, `react-csv` supports an `enclosingCharacter` prop which defaults to `"`.
+Following a request to add [this feature](https://github.com/abdennour/react-csv/issues/68) , from `1.1.0` release, `react-csv` supports an `enclosingCharacter` prop which defaults to `"`.
 
 
 ```js
