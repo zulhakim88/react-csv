@@ -57,8 +57,12 @@ export const buildURI = ((data, uFEFF, headers, separator) => {
   const dataURI = `data:text/csv;charset=utf-8,${uFEFF ? '\uFEFF' : ''}${csv}`;
 
   const URL = window.URL || window.webkitURL;
+ 
+  const winNav = window.navigator
 
   return (typeof URL.createObjectURL === 'undefined')
     ? dataURI
-    : URL.createObjectURL(blob);
+    :(typeof winNav.msSaveOrOpenBlob !== 'undefined')
+    ? blob
+    :URL.createObjectURL(blob);
 });
