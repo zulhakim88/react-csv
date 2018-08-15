@@ -14,7 +14,7 @@ export const propTypes = {
 export const defaultProps = {
   separator: ',',
   filename: 'generatedBy_react-csv.csv',
-  uFEFF: true
+  uFEFF: true,
 };
 
 export const PropsNotForwarded = [

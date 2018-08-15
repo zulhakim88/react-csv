@@ -30,14 +30,14 @@ class CSVDownload extends React.Component {
   }
 
   componentDidMount(){
-    const {data, headers, separator, uFEFF, target, specs, replace} = this.props;
+    const {data, headers, separator, uFEFF, filename } = this.props;
     if (typeof window.navigator.msSaveOrOpenBlob !== 'undefined') {
        this.state.page = window.navigator.msSaveOrOpenBlob(this.buildURI(data, uFEFF, headers, separator),"acc-contacts-export.csv");
     } else {
       const downloadLink = document.createElement("a");
       const url = this.buildURI(data, uFEFF, headers, separator);
       downloadLink.href = url;
-      downloadLink.download = "acc-contacts-export.csv";
+      downloadLink.download = filename;
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
