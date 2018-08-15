@@ -34,9 +34,16 @@ class CSVDownload extends React.Component {
     if (typeof window.navigator.msSaveOrOpenBlob !== 'undefined') {
        this.state.page = window.navigator.msSaveOrOpenBlob(this.buildURI(data, uFEFF, headers, separator),"acc-contacts-export.csv");
     } else {
-      this.state.page = window.open(
-        this.buildURI(data, uFEFF, headers, separator), target, specs, replace
-       );  
+      const downloadLink = document.createElement("a");
+      const url = this.buildURI(data, uFEFF, headers, separator);
+      downloadLink.href = url;
+      downloadLink.download = "acc-contacts-export.csv";
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+      // this.state.page = window.open(
+      //   this.buildURI(data, uFEFF, headers, separator), target, specs, replace
+      //  );
     }
   }
 
