@@ -41,9 +41,6 @@ class CSVDownload extends React.Component {
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
-      // this.state.page = window.open(
-      //   this.buildURI(data, uFEFF, headers, separator), target, specs, replace
-      //  );
     }
   }
 
